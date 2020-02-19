@@ -2,12 +2,13 @@
 
 BENCHMARKS_PATH = "rbenchmarking/Benchmarks"
 RIR_PATH = "/Users/Jakob/Desktop/Projects/rir"
+override = (ENV['OVERRIDE'] || "0") != "0"
 
 puts "setting up branches"
 Dir.chdir("#{RIR_PATH}/build/benchmarks") do
   ARGV.each do |branch|
     print "- #{branch} ... "
-    if File.exist?("#{branch}/bin/R") then
+    if File.exist?("#{branch}/bin/R") && !override then
       print "(already setup, set OVERRIDE=1 to remove) "
     else
       if !File.exist?(branch) then
