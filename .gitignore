@@ -1,3 +1,4 @@
 *.data
 *.conf
 .history
+!measure.conf
